@@ -14,6 +14,8 @@ namespace View.Model
     {
         private Dish selectedDish;
         private IDishService _dishService;
+        private IIngredientService _ingredientService;
+        private ObservableCollection<DishModel> _dishModels;
 
         public ObservableCollection<Dish> Dishes { get; set; }
         public Dish SelectedDish
@@ -22,13 +24,13 @@ namespace View.Model
             set
             {
                 selectedDish = value;
-                OnPropertyChanged("SelectedPhone");
+                OnPropertyChanged("SelectedDish");
             }
         }
 
         public MainWindowViewModel()
         {
-            // Dishes = new ObservableCollection<DishModel>(_dishService.GetAvailableDishes());
+           //  Dishes = new ObservableCollection<DishModel>(_dishService.GetAvailableDishes());
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -38,6 +40,13 @@ namespace View.Model
                 PropertyChanged(this, new PropertyChangedEventArgs(prop));
         }
 
-
+        public MainWindowViewModel( IDishService dishService, IIngredientService ingredientService)
+        {
+            
+            _dishService = dishService;
+            _ingredientService = ingredientService;
+            
+            _dishModels = new ObservableCollection<DishModel>(_dishService.GetAvailableDishes());
+        }
     }
 }

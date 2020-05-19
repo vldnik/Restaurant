@@ -7,14 +7,28 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="441" Width="377">
     <Grid Height="412">
-        <RichTextBox HorizontalAlignment="Left" Height="198" Margin="41,119,0,0" VerticalAlignment="Top" Width="298">
-            <FlowDocument>
-                <Paragraph>
-                    <Run Text="RichTextBox"/>
-                </Paragraph>
-            </FlowDocument>
-        </RichTextBox>
-        <Label Content="Ресторан Grand Bufet!" HorizontalAlignment="Left" Margin="41,39,0,0" VerticalAlignment="Top" Height="54" Width="408" FontSize="30"/>
-        <Button Content="Сделать заказ" HorizontalAlignment="Left" Margin="124,340,0,0" VerticalAlignment="Top" Width="121" Height="37"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="0.8*" />
+        </Grid.ColumnDefinitions>
+
+        <ListBox Grid.Column="0" ItemsSource="{Binding Dishes}"
+                 SelectedItem="{Binding SelectedDish}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="5">
+                        <TextBlock FontSize="18" Text="{Binding Path=Name}" />
+                        <TextBlock Text="{Binding Path=Weight}" />
+                        <TextBlock Text="{Binding Path=PrepareTime}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <StackPanel Grid.Column="1" DataContext="{Binding SelectedPhone}">
+            <TextBlock Text="Выбранный элемент"  />
+            <TextBlock Text="Модель" />
+            <TextBox Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}" />
+        </StackPanel>
     </Grid>
 </Window>
