@@ -15,10 +15,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business.Abstraction", "Bus
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business.Implementation", "Business.Implementation\Business.Implementation.csproj", "{C8D9B2FA-92C1-4954-8F51-37EFB627E8D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "View", "View\View.csproj", "{3F8345FE-402C-46CC-BE10-EDDA8CF3C481}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "View.Model", "View.Model\View.Model.csproj", "{B1B5AA82-58F9-459A-979B-BC0EC1C63C61}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,14 +45,6 @@ Global
 		{C8D9B2FA-92C1-4954-8F51-37EFB627E8D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C8D9B2FA-92C1-4954-8F51-37EFB627E8D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C8D9B2FA-92C1-4954-8F51-37EFB627E8D1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3F8345FE-402C-46CC-BE10-EDDA8CF3C481}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3F8345FE-402C-46CC-BE10-EDDA8CF3C481}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3F8345FE-402C-46CC-BE10-EDDA8CF3C481}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3F8345FE-402C-46CC-BE10-EDDA8CF3C481}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B1B5AA82-58F9-459A-979B-BC0EC1C63C61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B1B5AA82-58F9-459A-979B-BC0EC1C63C61}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B1B5AA82-58F9-459A-979B-BC0EC1C63C61}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B1B5AA82-58F9-459A-979B-BC0EC1C63C61}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
