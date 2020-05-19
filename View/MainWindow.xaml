@@ -25,9 +25,9 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <StackPanel Grid.Column="1" DataContext="{Binding SelectedPhone}">
+        <StackPanel Grid.Column="1" DataContext="{Binding SelectedDish}">
             <TextBlock Text="Выбранный элемент"  />
-            <TextBlock Text="Модель" />
+            <TextBlock Text="Блюдо" />
             <TextBox Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}" />
         </StackPanel>
     </Grid>

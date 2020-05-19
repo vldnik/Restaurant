@@ -28,10 +28,7 @@ namespace View.Model
             }
         }
 
-        public MainWindowViewModel()
-        {
-           //  Dishes = new ObservableCollection<DishModel>(_dishService.GetAvailableDishes());
-        }
+        
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName]string prop = "")
