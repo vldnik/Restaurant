@@ -11,6 +11,6 @@ namespace Entities
 
         public int PrepareTimeInMinutes { get; set; }
 
-        public ICollection<DishIngredient> Ingredients { get; set; }
+        public ICollection<DishIngredient> Ingredients { get; set; } = new List<DishIngredient>();
     }
 }

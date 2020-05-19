@@ -11,6 +11,6 @@ namespace Entities
 
         public bool IsHard { get; set; }
 
-        public ICollection<DishIngredient> Dishes { get; set; }
+        public ICollection<DishIngredient> Dishes { get; set; }= new List<DishIngredient>();
     }
 }

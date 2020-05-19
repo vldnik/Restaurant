@@ -13,6 +13,6 @@ namespace Models
 
         public DateTime PrepareTime { get; set; }
 
-        public ICollection<IngredientModel> Ingredients { get; set; }
+        public ICollection<IngredientModel> Ingredients { get; set; } = new List<IngredientModel>();
     }
 }

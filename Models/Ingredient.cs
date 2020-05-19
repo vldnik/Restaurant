@@ -12,6 +12,6 @@ namespace Models
 
         public bool IsHard { get; set; }
 
-        public ICollection<DishModel> Dishes { get; set; }
+        public ICollection<DishModel> Dishes { get; set; } = new List<DishModel>();
     }
 }
