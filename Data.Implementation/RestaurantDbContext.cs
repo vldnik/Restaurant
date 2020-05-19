@@ -20,7 +20,7 @@ namespace Data.Implementation
             base.OnConfiguring(optionsBuilder);
 
             optionsBuilder.UseSqlServer(
-                "Server=127.0.0.1,1433; Database=Restaurant; User=sa; Password=reallyStrongPwd1337;");
+                "Server=127.0.0.1,1433; Database=Restaurant; User=sa; Password=NicePass;");
         }
 
         public DbSet<Dish> Dishes { get; set; }
