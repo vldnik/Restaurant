@@ -6,7 +6,7 @@ namespace Business.Implementation
 {
     public static class BusinessServices
     {
-        public static IServiceCollection RegisterDataServices(this IServiceCollection services)
+        public static IServiceCollection RegisterBusinessServices(this IServiceCollection services)
         {
             services.AddTransient<IDishService, DishService>();
 

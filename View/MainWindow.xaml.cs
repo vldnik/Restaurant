@@ -1,5 +1,9 @@
-﻿using System;
+﻿using Business.Abstraction;
+using Business.Implementation;
+using Models;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +24,23 @@ namespace View
     /// </summary>
     public partial class MainWindow : Window
     {
+        private BindingList<DishModel> RestMenu;
+        private DishService _dishService;
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            RestMenu = new BindingList<DishModel>(_dishService.GetAvailableDishes().ToList());;
+            dgRest.ItemsSource = RestMenu;
+            RestMenu.ListChanged += RestMenu_ListChanged;
+        }
+
+        private void RestMenu_ListChanged(object sender, ListChangedEventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }

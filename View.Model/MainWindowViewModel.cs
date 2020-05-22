@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 
@@ -15,7 +16,7 @@ namespace View.Model
         private Dish selectedDish;
         private IDishService _dishService;
         private IIngredientService _ingredientService;
-        private ObservableCollection<DishModel> _dishModels;
+        private BindingList<DishModel> _dishModels;
 
         public ObservableCollection<Dish> Dishes { get; set; }
         public Dish SelectedDish
@@ -27,8 +28,6 @@ namespace View.Model
                 OnPropertyChanged("SelectedDish");
             }
         }
-
-        
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName]string prop = "")
@@ -43,7 +42,7 @@ namespace View.Model
             _dishService = dishService;
             _ingredientService = ingredientService;
             
-            _dishModels = new ObservableCollection<DishModel>(_dishService.GetAvailableDishes());
+            _dishModels = new BindingList<DishModel>(_dishService.GetAvailableDishes().ToList()); ;
         }
     }
 }

@@ -12,6 +12,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Business.Abstraction\Business.Abstraction.csproj" />
+    <ProjectReference Include="..\Business.Implementation\Business.Implementation.csproj" />
+    <ProjectReference Include="..\Data.Implementation\Data.Implementation.csproj" />
+    <ProjectReference Include="..\Models\Models.csproj" />
     <ProjectReference Include="..\View.Model\View.Model.csproj" />
   </ItemGroup>
 

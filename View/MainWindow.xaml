@@ -5,30 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:View"
         mc:Ignorable="d"
-        Title="MainWindow" Height="441" Width="377">
-    <Grid Height="412">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="0.8*" />
-        </Grid.ColumnDefinitions>
-
-        <ListBox Grid.Column="0" ItemsSource="{Binding Dishes}"
-                 SelectedItem="{Binding SelectedDish}">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Margin="5">
-                        <TextBlock FontSize="18" Text="{Binding Path=Name}" />
-                        <TextBlock Text="{Binding Path=Weight}" />
-                        <TextBlock Text="{Binding Path=PrepareTime}" />
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-
-        <StackPanel Grid.Column="1" DataContext="{Binding SelectedDish}">
-            <TextBlock Text="Выбранный элемент"  />
-            <TextBlock Text="Блюдо" />
-            <TextBox Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}" />
-        </StackPanel>
+        Title="Restaraunt" Height="323" Width="538" Loaded="Window_Loaded">
+    <Grid>
+        <DataGrid x:Name="dgRest" FontSize="16" FontWeight="Bold" Margin="10" AutoGenerateColumns="False">
+            <DataGridTextColumn IsReadOnly="True" Binding="{Binding Path='Name'}" Header="Dish" Width="*"/>
+            <DataGridTextColumn IsReadOnly="True" Binding="{Binding Path='Price'}" Header="Price" Width="80"/>
+            <DataGridTextColumn IsReadOnly="True" Binding="{Binding Path='PrepareTime'}" Header="Time" Width="80"/>
+            <DataGridCheckBoxColumn IsReadOnly="False" Header="Order" Width="80"/>
+        </DataGrid>
     </Grid>
 </Window>

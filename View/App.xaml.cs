@@ -1,11 +1,8 @@
 ﻿using Business.Abstraction;
+using Data.Implementation;
+using Business.Implementation;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
 using View.Model;
 
@@ -45,10 +42,12 @@ namespace View
             DisplayRootRegistry.ShowModalPresentation(viewModel);
             Shutdown();
         }
-
+       
         private void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton(typeof(MainWindow));
+            services.RegisterDataServices();
+            services.RegisterBusinessServices();
         }
     }
 }
