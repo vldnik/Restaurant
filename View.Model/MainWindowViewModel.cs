@@ -13,36 +13,51 @@ namespace View.Model
 {
     public class MainWindowViewModel : INotifyPropertyChanged
     {
-        private Dish selectedDish;
-        private IDishService _dishService;
-        private IIngredientService _ingredientService;
+        private readonly IDishService _dishService;
+        private readonly IIngredientService _ingredientService;
+
         private BindingList<DishModel> _dishModels;
 
-        public ObservableCollection<Dish> Dishes { get; set; }
-        public Dish SelectedDish
-        {
-            get { return selectedDish; }
-            set
-            {
-                selectedDish = value;
-                OnPropertyChanged("SelectedDish");
-            }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName]string prop = "")
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(prop));
-        }
+        private RelayCommand _updateWindowCommand;
 
         public MainWindowViewModel( IDishService dishService, IIngredientService ingredientService)
         {
             
             _dishService = dishService;
             _ingredientService = ingredientService;
+
+            _dishModels = new BindingList<DishModel>(_dishService.GetAvailableDishes().ToList());
+           
+        }
+        public BindingList<DishModel> DishModels
+        {
+            get => _dishModels;
+            set
+            {
+                _dishModels = value;
+                OnPropertyChanged();
+            }
+        }
+        internal void UpdateWindow()
+        {
+            DishModels = new BindingList<DishModel>(_dishService.GetAvailableDishes().ToList());
             
-            _dishModels = new BindingList<DishModel>(_dishService.GetAvailableDishes().ToList()); ;
+        }
+        public RelayCommand UpdateWindowCommand
+        {
+            get
+            {
+                return _updateWindowCommand ??= new RelayCommand(o =>
+                {
+                    UpdateWindow();
+                });
+            }
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

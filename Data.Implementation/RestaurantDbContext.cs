@@ -20,7 +20,7 @@ namespace Data.Implementation
             base.OnConfiguring(optionsBuilder);
 
             optionsBuilder.UseSqlServer(
-                "Server=127.0.0.1,1433; Database=Restaurant; User=sa; Password=NicePass;");
+                "Server=localhost;Database=Restaraunt;Trusted_Connection=True;");
         }
 
         public DbSet<Dish> Dishes { get; set; }
@@ -53,7 +53,7 @@ namespace Data.Implementation
                 Id = 1,
                 Name = "A cup of water",
                 PrepareTimeInMinutes = 2,
-                //Weight = 1
+                Weight = 1
             };
 
             var ingredient1 = new Ingredient()

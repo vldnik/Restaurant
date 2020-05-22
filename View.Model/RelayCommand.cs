@@ -5,7 +5,7 @@ using System.Windows.Input;
 
 namespace View.Model
 {
-    class RelayCommand :ICommand
+    public class RelayCommand :ICommand
     {
         private readonly Func<object, bool> _canExecute;
         private readonly Action<object> _execute;

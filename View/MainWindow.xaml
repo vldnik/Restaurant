@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:View"
         mc:Ignorable="d"
-        Title="Restaraunt" Height="323" Width="538" Loaded="Window_Loaded">
+        Title="Restaraunt" Height="323" Width="538">
     <Grid>
-        <DataGrid x:Name="dgRest" FontSize="16" FontWeight="Bold" Margin="10" AutoGenerateColumns="False">
-            <DataGridTextColumn IsReadOnly="True" Binding="{Binding Path='Name'}" Header="Dish" Width="*"/>
-            <DataGridTextColumn IsReadOnly="True" Binding="{Binding Path='Price'}" Header="Price" Width="80"/>
-            <DataGridTextColumn IsReadOnly="True" Binding="{Binding Path='PrepareTime'}" Header="Time" Width="80"/>
+        <DataGrid x:Name="dgRest" FontSize="16" FontWeight="Bold" Margin="10" AutoGenerateColumns="False" ItemsSource="{Binding DishModels}">
+            <DataGridTextColumn IsReadOnly="True" Binding="{Binding Name}" Header="Dish" Width="*"/>
+            <DataGridTextColumn IsReadOnly="True" Binding="{Binding Price}" Header="Price" Width="80"/>
+            <DataGridTextColumn IsReadOnly="True" Binding="{Binding PrepareTime }" Header="Time" Width="80"/>
             <DataGridCheckBoxColumn IsReadOnly="False" Header="Order" Width="80"/>
         </DataGrid>
     </Grid>
