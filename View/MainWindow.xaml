@@ -6,6 +6,23 @@
         xmlns:local="clr-namespace:View"
         mc:Ignorable="d"
         Title="Restaraunt" Height="323" Width="538">
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="FontStyle" Value="Italic" />
+            <Setter Property="Margin" Value="5 0" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="3" />
+            <Setter Property="Background" Value="Lavender" />
+        </Style>
+        <Style TargetType="DataGrid">
+            <Setter Property="RowBackground" Value="Aquamarine"></Setter>
+            <Setter Property="AlternatingRowBackground" Value="Aqua"></Setter>
+            <Setter Property="Margin" Value="5"></Setter>
+        </Style>
+    </Window.Resources>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.9*"></RowDefinition>
