@@ -31,6 +31,9 @@ namespace data.implementation.Migrations
                     b.Property<int>("PrepareTimeInMinutes")
                         .HasColumnType("int");
 
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<int>("Weight")
                         .HasColumnType("int");
 
@@ -44,7 +47,16 @@ namespace data.implementation.Migrations
                             Id = 1,
                             Name = "A cup of water",
                             PrepareTimeInMinutes = 2,
-                            Weight = 0
+                            Price = 99.99m,
+                            Weight = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "slice of bread",
+                            PrepareTimeInMinutes = 10,
+                            Price = 29.99m,
+                            Weight = 1
                         });
                 });
 
@@ -67,6 +79,11 @@ namespace data.implementation.Migrations
                         {
                             DishId = 1,
                             IngredientId = 1
+                        },
+                        new
+                        {
+                            DishId = 2,
+                            IngredientId = 2
                         });
                 });
 
@@ -97,6 +114,13 @@ namespace data.implementation.Migrations
                             IsHard = false,
                             Name = "Water",
                             Quantity = 500
+                        },
+                        new
+                        {
+                            Id = 2,
+                            IsHard = false,
+                            Name = "Bread",
+                            Quantity = 200
                         });
                 });
 

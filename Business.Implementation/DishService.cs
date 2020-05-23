@@ -64,5 +64,23 @@ namespace Business.Implementation
 
             return dish.PrepareTimeInMinutes;
         }
+
+        public void MakeOrder(IEnumerable<DishModel> selected, out decimal totalPrice, out int timeToWait)
+        {
+            totalPrice = selected.Select(x => x.Price).Sum();
+            timeToWait = selected.Select(x => x.PrepareTimeInMinutes).Max();
+
+            //TODO: changing ingredient quantity in DB
+            /*foreach (var dishModel in selected)
+            {
+                foreach (var ingredient in dishModel.Ingredients)
+                {
+                    --ingredient.Quantity;
+                    var ingredientEntity = _mapper.Map<Ingredient>(ingredient);
+                    _unit.IngredientRepository.Update(ingredientEntity);
+                }
+            }
+            _unit.Save();*/
+        }
     }
 }

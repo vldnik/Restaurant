@@ -54,7 +54,8 @@ namespace Data.Implementation
                 Id = 1,
                 Name = "A cup of water",
                 PrepareTimeInMinutes = 2,
-                Weight = 1
+                Weight = 1,
+                Price = (decimal)99.99
             };
 
             var ingredient1 = new Ingredient()
@@ -76,7 +77,8 @@ namespace Data.Implementation
                 Id = 2, 
                 Name = "slice of bread",
                 PrepareTimeInMinutes = 10,
-                Weight = 1
+                Weight = 1,
+                Price = (decimal)29.99
             };
             
             var ingredient2 = new Ingredient

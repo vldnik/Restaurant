@@ -19,6 +19,9 @@ namespace View.Model
         private BindingList<DishModel> _dishModels;
 
         private RelayCommand _updateWindowCommand;
+        private decimal _totalPrice;
+        private int _timeToWait;
+        private RelayCommand _makeOrderCommand;
 
         public MainWindowViewModel( IDishService dishService, IIngredientService ingredientService)
         {
@@ -29,6 +32,27 @@ namespace View.Model
             DishModels = new BindingList<DishModel>(_dishService.GetAvailableDishes().ToList());
            
         }
+
+        public decimal TotalPrice
+        {
+            get => _totalPrice;
+            set
+            {
+                _totalPrice = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public int TimeToWait 
+        { 
+            get => _timeToWait;
+            set
+            {
+                _timeToWait = value;
+                OnPropertyChanged();
+            }
+        }
+        
         public BindingList<DishModel> DishModels
         {
             get => _dishModels;
@@ -38,21 +62,26 @@ namespace View.Model
                 OnPropertyChanged();
             }
         }
-        internal void UpdateWindow()
+
+        public RelayCommand MakeOrderCommand  => _makeOrderCommand ??= new RelayCommand(o =>
         {
-            DishModels = new BindingList<DishModel>(_dishService.GetAvailableDishes().ToList());
-            
-        }
-        public RelayCommand UpdateWindowCommand
+            makeOrder();
+        }, o => checkSelection());
+
+        private void makeOrder()
         {
-            get
-            {
-                return _updateWindowCommand ??= new RelayCommand(o =>
-                {
-                    UpdateWindow();
-                });
-            }
+            var selected = DishModels.Where(x => x.IsSelected);
+            _dishService.MakeOrder(selected, out decimal totalPrice, out int timeToWait);
+            TotalPrice = totalPrice;
+            TimeToWait = timeToWait;
         }
+        
+        private bool checkSelection()
+        {
+            var flag = DishModels.Any(x => x.IsSelected == true);
+            return flag;
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
