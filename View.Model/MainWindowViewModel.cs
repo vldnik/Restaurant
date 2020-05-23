@@ -17,8 +17,7 @@ namespace View.Model
         private readonly IIngredientService _ingredientService;
 
         private BindingList<DishModel> _dishModels;
-
-        private RelayCommand _updateWindowCommand;
+        
         private decimal _totalPrice;
         private int _timeToWait;
         private RelayCommand _makeOrderCommand;
