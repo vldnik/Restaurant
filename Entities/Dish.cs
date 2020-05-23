@@ -9,6 +9,8 @@ namespace Entities
         
         public int Weight { get; set; }
 
+        public decimal Price { get; set; }
+
         public int PrepareTimeInMinutes { get; set; }
 
         public ICollection<DishIngredient> Ingredients { get; set; } = new List<DishIngredient>();
