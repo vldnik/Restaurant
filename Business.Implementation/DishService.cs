@@ -49,7 +49,7 @@ namespace Business.Implementation
             return dishModels;
         }
 
-        public DateTime OrderDish(DishModel dish)
+        public int OrderDish(DishModel dish)
         {
             var dishEntity = _unit.DishRepository.FindByCondition(d => d.Id == dish.Id).SingleOrDefault();
 
@@ -62,7 +62,7 @@ namespace Business.Implementation
             
             _unit.DishRepository.Update(dishEntity);
 
-            return dish.PrepareTime;
+            return dish.PrepareTimeInMinutes;
         }
     }
 }

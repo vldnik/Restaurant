@@ -11,7 +11,7 @@ namespace Models
         
         public int Weight { get; set; }
 
-        public DateTime PrepareTime { get; set; }
+        public int PrepareTimeInMinutes { get; set; }
 
         public ICollection<IngredientModel> Ingredients { get; set; } = new List<IngredientModel>();
     }

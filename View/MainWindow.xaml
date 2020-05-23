@@ -11,7 +11,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn IsReadOnly="True" Binding="{Binding Name}" Header="Dish" Width="*"/>
                 <DataGridTextColumn IsReadOnly="True" Binding="{Binding Price}" Header="Price" Width="80"/>
-                <DataGridTextColumn IsReadOnly="True" Binding="{Binding PrepareTime }" Header="Time" Width="80"/>
+                <DataGridTextColumn IsReadOnly="True" Binding="{Binding PrepareTimeInMinutes}" Header="Time" Width="80"/>
                 <DataGridCheckBoxColumn IsReadOnly="False" Header="Order" Width="80"/>
             </DataGrid.Columns>
         </DataGrid>

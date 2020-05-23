@@ -8,6 +8,6 @@ namespace Business.Abstraction
     {
         IEnumerable<DishModel> GetAvailableDishes();
 
-        DateTime OrderDish(DishModel dish);
+        int OrderDish(DishModel dish);
     }
 }
