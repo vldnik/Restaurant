@@ -26,7 +26,7 @@ namespace View.Model
             _dishService = dishService;
             _ingredientService = ingredientService;
 
-            _dishModels = new BindingList<DishModel>(_dishService.GetAvailableDishes().ToList());
+            DishModels = new BindingList<DishModel>(_dishService.GetAvailableDishes().ToList());
            
         }
         public BindingList<DishModel> DishModels
