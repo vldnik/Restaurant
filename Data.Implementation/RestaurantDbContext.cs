@@ -71,9 +71,31 @@ namespace Data.Implementation
                 IngredientId = 1
             };
 
-            modelBuilder.Entity<Dish>().HasData(dish1);
-            modelBuilder.Entity<Ingredient>().HasData(ingredient1);
-            modelBuilder.Entity<DishIngredient>().HasData(dishIngredient1);
+            var dish2 = new Dish
+            {
+                Id = 2, 
+                Name = "slice of bread",
+                PrepareTimeInMinutes = 10,
+                Weight = 1
+            };
+            
+            var ingredient2 = new Ingredient
+            {
+                Id = 2,
+                IsHard = false,
+                Name = "Bread",
+                Quantity = 200
+            };
+            
+            var dishIngredient2 = new DishIngredient
+            {
+                DishId = 2,
+                IngredientId = 2
+            };
+
+            modelBuilder.Entity<Dish>().HasData(dish1, dish2);
+            modelBuilder.Entity<Ingredient>().HasData(ingredient1, ingredient2);
+            modelBuilder.Entity<DishIngredient>().HasData(dishIngredient1, dishIngredient2);
 
             #endregion
         }
