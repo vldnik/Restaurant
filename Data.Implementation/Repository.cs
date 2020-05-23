@@ -9,14 +9,14 @@ namespace Data.Implementation
 {
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : BaseEntity
     {
-        private readonly DbSet<TEntity> _dbSet;
+        protected readonly DbSet<TEntity> _dbSet;
         
         public Repository(RestaurantDbContext context)
         {
             _dbSet = context.Set<TEntity>();
         }
  
-        public IQueryable<TEntity> FindAll()
+        public virtual IQueryable<TEntity> FindAll()
         {
             return _dbSet.AsNoTracking();
         }
