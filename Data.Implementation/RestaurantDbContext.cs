@@ -8,6 +8,7 @@ namespace Data.Implementation
     {
         public RestaurantDbContext(DbContextOptions<RestaurantDbContext> options) : base(options)
         {
+            Database.EnsureDeleted();
             Database.EnsureCreated();
         }
 
